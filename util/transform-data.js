@@ -3,7 +3,10 @@ module.exports.table = (data) => {
     const description = [];
 
     for (let i = 0; i < global.description.length; i++) {
-        if (data[0][global.description[i].origin]) {
+
+        const valueField = data[0][global.description[i].origin];
+
+        if (valueField !== undefined ) {
             let counter = 0;
             for (let j = 0; j < data.length; j++) {
                 if (newData[counter]) {
