@@ -41,4 +41,3 @@ app.use('/national-waste', wasteRouter);
 app.use('/national-costs', costsRouters);
 
 module.exports = server;
-

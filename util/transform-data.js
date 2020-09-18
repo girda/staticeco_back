@@ -1,30 +1,33 @@
-module.exports.table = (data) => {
-    const newData = [];
+module.exports.table = (rows, startRow, limitRows) => {
+    const newRows = [];
     const description = [];
+    let totalRows;
 
     for (let i = 0; i < global.description.length; i++) {
-
-        const valueField = data[0][global.description[i].origin];
+        const key = global.description[i].origin;
+        const valueField = rows[0][key];
 
         if (valueField !== undefined ) {
-            let counter = 0;
-            for (let j = 0; j < data.length; j++) {
-                if (newData[counter]) {
-                    newData[counter][global.description[i].origin] = data[j][global.description[i].origin];
-                    counter++;
+            for (let j = 0; j < rows.length; j++) {
+                if (newRows[j]) {
+                    newRows[j][key] = rows[j][key];
                 } else {
-                    newData[counter] = {};
-                    newData[counter][global.description[i].origin] = data[j][global.description[i].origin];
-                    counter++;
+                    newRows[j] = {};
+                    newRows[j][key] = rows[j][key];
                 }
             }
             description.push(global.description[i]);
         }
     }
 
+    if (rows.length !== limitRows) {
+        totalRows = startRow + rows.length
+    }
+
     return {
         description,
-        data: newData
+        rows: newRows,
+        totalRows
     }
 };
 
