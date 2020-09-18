@@ -20,9 +20,9 @@ module.exports = (req, res) => {
             const keys = Object.keys(filterModel);
             keys.forEach((key, i) => {
                 if (i === 0) {
-                    query += `WHERE ${key} = ${filterModel[key].filter} `;
+                    query += `WHERE ${key} LIKE '%${filterModel[key].filter}%' `;
                 } else {
-                    query += `AND ${key} = ${filterModel[key].filter} `;
+                    query += `AND ${key} LIKE '%${filterModel[key].filter}%' `;
                 }
 
             });
