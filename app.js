@@ -6,6 +6,9 @@ const authRouter = require('./routes/auth');
 const emissionsRouter = require('./routes/national-emissions');
 const wasteRouter = require('./routes/national-waste');
 const costsRouters = require('./routes/national-costs');
+const regionsRouters = require('./routes/regions');
+const subjectsRouters = require('./routes/subjects');
+const periodsRouters = require('./routes/periods');
 
 
 const http = require('http');
@@ -39,5 +42,9 @@ app.use('/auth', authRouter);
 app.use('/national-emissions', emissionsRouter);
 app.use('/national-waste', wasteRouter);
 app.use('/national-costs', costsRouters);
+app.use('/regions', regionsRouters);
+app.use('/subjects', subjectsRouters);
+app.use('/periods', periodsRouters);
+
 
 module.exports = server;
