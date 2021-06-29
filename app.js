@@ -9,6 +9,7 @@ const costsRouters = require('./routes/national-costs');
 const regionsRouters = require('./routes/regions');
 const subjectsRouters = require('./routes/subjects');
 const periodsRouters = require('./routes/periods');
+const getTableRouters = require('./routes/get-table');
 
 
 const http = require('http');
@@ -45,6 +46,7 @@ app.use('/national-costs', costsRouters);
 app.use('/regions', regionsRouters);
 app.use('/subjects', subjectsRouters);
 app.use('/periods', periodsRouters);
+app.use('/get-table', getTableRouters);
 
 
 module.exports = server;
